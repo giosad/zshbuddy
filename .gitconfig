@@ -1,0 +1,31 @@
+[user]
+	name = Gennadi Iosad
+	email = gena@lightricks.com
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	pushuf = "!git push -u origin --force-with-lease  $(git symbolic-ref --short HEAD)"
+	pushu = "!git push -u origin $(git symbolic-ref --short HEAD)"
+	st = status
+	co = checkout
+	log-graph = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' 
+	log-graph-all = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all
+	clone-rec = clone --recurse-submodules
+ 	clean-hard = "!git reset --hard && git clean -ffdx"
+	amend = commit --no-edit --amend
+	sumu = submodule update --init --recursive
+	unstage-all = restore --staged .
+	discard = restore
+	last = log -1 HEAD
+	staged-files = diff --name-only --cached
+	staged = diff --cached
+	

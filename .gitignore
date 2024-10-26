@@ -1,0 +1,5 @@
+backup/**
+.p10k.zsh
+zsh-plugins.zsh
+.antidote
+.DS_Store

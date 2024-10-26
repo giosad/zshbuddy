@@ -1,0 +1,80 @@
+#───────────────────────────────────────────────────────────────────────────────
+# Theme & Prompt
+#───────────────────────────────────────────────────────────────────────────────
+# Powerlevel10k - A fast and feature-rich theme with many customization options
+# Github: https://github.com/romkatv/powerlevel10k
+# - Instant prompt feature for immediate shell availability
+# - Customizable segments showing git status, python venv, time, etc.
+# - Configure with: p10k configure
+romkatv/powerlevel10k
+
+#───────────────────────────────────────────────────────────────────────────────
+# Core Functionality
+#───────────────────────────────────────────────────────────────────────────────
+# FZF Tab - Replace zsh's default completion selection menu with fzf
+# Github: https://github.com/Aloxaf/fzf-tab
+# - Enhanced tab completion with fuzzy search
+# - Preview window for file content/directory tree
+# - Must be loaded after compinit but before plugins that wrap widgets
+Aloxaf/fzf-tab
+
+# Z - Jump to frequently used directories
+# Github: https://github.com/rupa/z
+# - Tracks your most used directories
+# - Jump to directories with 'z dirname'
+rupa/z
+
+# FZ - Enhanced Z integration with FZF
+# Github: https://github.com/mrjohannchang/fz.sh
+# - Adds interactive directory selection to z
+# - Use 'fz' to see interactive list
+mrjohannchang/fz.sh
+
+# Bat integration - Enhanced file viewing
+# Github: https://github.com/fdellwing/zsh-bat
+# - Replaces cat with bat for syntax highlighting
+# - Use 'rcat' for original cat behavior
+fdellwing/zsh-bat
+
+#───────────────────────────────────────────────────────────────────────────────
+# Oh My Zsh Integration
+#───────────────────────────────────────────────────────────────────────────────
+# Oh My Zsh Core - Load essential Oh My Zsh functionality
+# Required for using OMZ plugins
+getantidote/use-omz 
+
+# Sudo - Press ESC twice to add sudo to current/previous command
+# Github: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/sudo
+
+#───────────────────────────────────────────────────────────────────────────────
+# History & Search
+#───────────────────────────────────────────────────────────────────────────────
+# History Substring Search - Fish-like history search
+# Github: https://github.com/zsh-users/zsh-history-substring-search
+# - Type any part of any command from history and press Up/Down
+# - Provides context-sensitive history search
+zsh-users/zsh-history-substring-search
+
+# Completion Configuration - Load and initialize completion system
+# Github: https://github.com/belak/zsh-utils
+# - Configures completion system with sane defaults
+# - Must be loaded after completion definitions
+belak/zsh-utils path:completion
+
+#───────────────────────────────────────────────────────────────────────────────
+# Deferred Loading Plugins
+#───────────────────────────────────────────────────────────────────────────────
+# These plugins are loaded after the shell starts to improve startup time
+
+# Fast Syntax Highlighting - Syntax highlighting for commands
+# Github: https://github.com/zdharma-continuum/fast-syntax-highlighting
+# - Faster than standard ZSH syntax highlighting
+# - Highlights commands, options, paths, and strings
+zdharma-continuum/fast-syntax-highlighting kind:defer
+
+# Auto Suggestions - Fish-like auto suggestions
+# Github: https://github.com/zsh-users/zsh-autosuggestions
+# - Suggests commands as you type based on history
+# - Press right arrow to accept suggestion
+zsh-users/zsh-autosuggestions kind:defer
