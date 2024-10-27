@@ -53,7 +53,7 @@ install_dependencies() {
         if ! is_command_available brew; then
             error "Homebrew is required. Please install it first: https://brew.sh"
         fi
-        brew install zsh bat fzf fd coreutils
+        brew install bat fzf fd coreutils
     elif [[ "$os" == "linux" ]]; then
         sudo apt update && sudo apt install -y zsh bat fzf fd-find curl
     fi
@@ -82,13 +82,29 @@ copy_p10k_config() {
     cp "$ZSHBUDDY_HOME/.p10k.zsh.default" "$ZSHBUDDY_HOME/.p10k.zsh"
 }
 
+cleanup_markers() {
+    local file="$1"
+    local os="$(detect_os)"
+    case "$os" in
+        macos)
+            sed -i '' "/$ZSHBUDDY_MARKER/,/$ZSHBUDDY_END_MARKER/d" "$file"
+            ;;
+        linux)
+            sed -i "/$ZSHBUDDY_MARKER/,/$ZSHBUDDY_END_MARKER/d" "$file"
+            ;;
+        *)
+            error "Unsupported operating system: $os"
+            ;;
+    esac
+}
+
 update_zshrc() {    
     # Remove any existing ZSHBuddy configuration
     if [[ -f "$HOME/.zshrc" ]]; then
-        sed -i "/$ZSHBUDDY_MARKER/,/$ZSHBUDDY_END_MARKER/d" "$HOME/.zshrc"
+        cleanup_markers "$HOME/.zshrc"
     fi
 
-    # prepend ZSHBuddy configuration to .zshrc
+    # Prepend ZSHBuddy configuration to .zshrc
     local temp_file=$(mktemp)
     cat > "$temp_file" << EOL
 
@@ -150,7 +166,7 @@ restore_zshrc() {
     
     # Remove ZSHBuddy configuration from .zshrc if it somehow made into the backup
     if [[ -f "$HOME/.zshrc" ]]; then
-        sed -i "/$ZSHBUDDY_MARKER/,/$ZSHBUDDY_END_MARKER/d" "$HOME/.zshrc"
+        cleanup_markers "$HOME/.zshrc"
     fi
     
     success "ZSHBuddy has been uninstalled."
