@@ -50,7 +50,7 @@ setopt PUSHD_SILENT
 setopt PUSHD_TO_HOME
 
 
-# Bind arrow up and down keys for history substring search
+# Bind arrow up and down keys for history substring search plugin from zsh-plugins.txt
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
