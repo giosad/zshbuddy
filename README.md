@@ -36,16 +36,25 @@ After installing ZSHBuddy, the following console commands are available:
 - **fd**: A simple, fast and user-friendly alternative to `find`. [GitHub](https://github.com/sharkdp/fd)
 - **bat**: A cat clone with syntax highlighting and Git integration, aliased to the regular `cat`, so it will just work. [GitHub](https://github.com/sharkdp/bat)
 
+### Additional shell aliases
+
+- **va** - python's virtual env activate (look all way up through directories to find first .venv)
+- **vd** - python's virtual env deactivate
+- **ls** - enabled colors, directories first, human readable file sizes
+- **ll** - list files (verbose)
+- **la** - list files including hidden (dot files)
+- **cat** - shows files contents with `bat` (enhanced view).
+
 ## Included Plugins
 
-- **Powerlevel10k**: Beautiful and informative terminal prompt
-- **fzf-tab**: Enhanced tab completion using fzf
-- **z**: Smart directory jumping
-- **fz.sh**: Fuzzy search integration for z
-- **zsh-bat**: Enhanced file viewing with bat
-- **zsh-history-substring-search**: Smart history search
-- **fast-syntax-highlighting**: Command syntax highlighting
-- **zsh-autosuggestions**: Fish-like autosuggestions
+- **[Powerlevel10k](https://github.com/romkatv/powerlevel10k)**: Beautiful and informative terminal prompt.
+- **[fzf-tab](https://github.com/Aloxaf/fzf-tab)**: Enhanced tab completion using `fzf`.
+- **[z](https://github.com/rupa/z)**: Smart directory jumping.
+- **[fz.sh](https://github.com/mrjohannchang/fz.sh)**: Fuzzy search integration for `z`.
+- **[zsh-bat](https://github.com/fdellwing/zsh-bat)**: Enhanced file viewing with `bat`.
+- **[zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)**: Smart history search.
+- **[fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)**: Command syntax highlighting.
+- **[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)**: Fish-like autosuggestions.
 
 ## Configuration
 
