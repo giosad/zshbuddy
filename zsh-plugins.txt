@@ -1,3 +1,8 @@
+# MUST BE TOP ENTRY
+# EZ Compinit - Simplified and faster completion system init
+# Github: https://github.com/mattmc3/ez-compinit
+mattmc3/ez-compinit
+
 #───────────────────────────────────────────────────────────────────────────────
 # Theme & Prompt
 #───────────────────────────────────────────────────────────────────────────────

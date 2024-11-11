@@ -137,8 +137,6 @@ ZSHBUDDY_HOME=$ZSHBUDDY_HOME_STR
 source "\$ZSHBUDDY_HOME/zshbuddy-zsh-config.sh"
 source "\$ZSHBUDDY_HOME/zshbuddy-extra-config.sh"
 
-# Enable completions
-autoload -Uz compinit && compinit
 
 # Load antidote
 source "\$ZSHBUDDY_HOME/.antidote/antidote.zsh"
