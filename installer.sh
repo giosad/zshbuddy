@@ -134,14 +134,16 @@ $ZSHBUDDY_MARKER
 # ZSHBuddy Configuration - This section must be at the bottom of .zshrc
 # Do not edit this section manually
 ZSHBUDDY_HOME=$ZSHBUDDY_HOME_STR
-source "\$ZSHBUDDY_HOME/zshbuddy-zsh-config.sh"
-source "\$ZSHBUDDY_HOME/zshbuddy-extra-config.sh"
 
 
 # Load antidote
 source "\$ZSHBUDDY_HOME/.antidote/antidote.zsh"
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 antidote load \$ZSHBUDDY_HOME/zsh-plugins.txt
+
+# extra overrides
+source "\$ZSHBUDDY_HOME/zshbuddy-zsh-config.sh"
+source "\$ZSHBUDDY_HOME/zshbuddy-extra-config.sh"
 
 # Load Powerlevel10k configuration
 [[ ! -f \$ZSHBUDDY_HOME/.p10k.zsh ]] || source \$ZSHBUDDY_HOME/.p10k.zsh
