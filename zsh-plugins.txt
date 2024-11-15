@@ -1,7 +1,30 @@
-# MUST BE TOP ENTRY
-# EZ Compinit - Simplified and faster completion system init
-# Github: https://github.com/mattmc3/ez-compinit
-mattmc3/ez-compinit
+#───────────────────────────────────────────────────────────────────────────────
+# Oh My Zsh
+#───────────────────────────────────────────────────────────────────────────────
+# Oh My Zsh - Load essential Oh My Zsh functionality
+# Required for using OMZ plugins
+# MUST BE TOP ENTRY - it defers init of compinit
+getantidote/use-omz 
+
+# Common definitions of omz
+# Github: https://github.com/ohmyzsh/ohmyzsh/tree/master/lib
+ohmyzsh/ohmyzsh path:lib             
+
+# Sudo - Press ESC twice to add sudo to current/previous command
+# Github: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/sudo
+
+# docker command completions and aliases, see
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+ohmyzsh/ohmyzsh path:plugins/docker
+
+# kubectl command completions and aliases see 
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
+ohmyzsh/ohmyzsh path:plugins/kubectl
+
+# uv command completions and aliases see 
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/uv
+ohmyzsh/ohmyzsh path:plugins/uv
 
 #───────────────────────────────────────────────────────────────────────────────
 # Theme & Prompt
@@ -13,16 +36,6 @@ mattmc3/ez-compinit
 # - Configure with: p10k configure
 romkatv/powerlevel10k
 
-#───────────────────────────────────────────────────────────────────────────────
-# Core Functionality
-#───────────────────────────────────────────────────────────────────────────────
-# FZF Tab - Replace zsh's default completion selection menu with fzf
-# Github: https://github.com/Aloxaf/fzf-tab
-# - Enhanced tab completion with fuzzy search
-# - Preview window for file content/directory tree
-# - Must be loaded after compinit but before plugins that wrap widgets
-Aloxaf/fzf-tab
-
 # Z - Jump to frequently used directories
 # Github: https://github.com/rupa/z
 # - Tracks your most used directories
@@ -31,8 +44,7 @@ rupa/z
 
 # FZ - Enhanced Z integration with FZF
 # Github: https://github.com/mrjohannchang/fz.sh
-# - Adds interactive directory selection to z
-# - Use 'fz' to see interactive list
+# - Adds interactive directory selection to z, z <some-dir-slug>[Tab]
 mrjohannchang/fz.sh
 
 # Bat integration - Enhanced file viewing
@@ -40,17 +52,6 @@ mrjohannchang/fz.sh
 # - Replaces cat with bat for syntax highlighting
 # - Use 'rcat' for original cat behavior
 fdellwing/zsh-bat
-
-#───────────────────────────────────────────────────────────────────────────────
-# Oh My Zsh Integration
-#───────────────────────────────────────────────────────────────────────────────
-# Oh My Zsh Core - Load essential Oh My Zsh functionality
-# Required for using OMZ plugins
-getantidote/use-omz 
-
-# Sudo - Press ESC twice to add sudo to current/previous command
-# Github: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo
-ohmyzsh/ohmyzsh path:plugins/sudo
 
 #───────────────────────────────────────────────────────────────────────────────
 # History & Search
@@ -61,11 +62,15 @@ ohmyzsh/ohmyzsh path:plugins/sudo
 # - Provides context-sensitive history search
 zsh-users/zsh-history-substring-search
 
-# Completion Configuration - Load and initialize completion system
-# Github: https://github.com/belak/zsh-utils
-# - Configures completion system with sane defaults
-# - Must be loaded after completion definitions
-belak/zsh-utils path:completion
+#───────────────────────────────────────────────────────────────────────────────
+# Core Functionality
+#───────────────────────────────────────────────────────────────────────────────
+# FZF Tab - Replace zsh's default completion selection menu with fzf
+# Github: https://github.com/Aloxaf/fzf-tab
+# - Enhanced tab completion with fuzzy search
+# - Preview window for file content/directory tree
+# - Must be loaded after compinit but before plugins that wrap widgets
+Aloxaf/fzf-tab
 
 #───────────────────────────────────────────────────────────────────────────────
 # Deferred Loading Plugins
@@ -83,3 +88,7 @@ zdharma-continuum/fast-syntax-highlighting kind:defer
 # - Suggests commands as you type based on history
 # - Press right arrow to accept suggestion
 zsh-users/zsh-autosuggestions kind:defer
+
+# Installs commands for zsh performance benchmark
+# Github: https://github.com/romkatv/zsh-bench
+romkatv/zsh-bench kind:path
