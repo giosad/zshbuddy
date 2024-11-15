@@ -1,5 +1,6 @@
 # Configuration of extra aliases for shell commands
 
+# Unifies command names for macOS and linux
 if [[ "$OSTYPE" == "darwin"* ]]; then
     LS='gls'
     FD='fd'
@@ -11,21 +12,22 @@ else
     return 1
 fi
 
-# Common aliases
 # enable in ls:
-# - file types highlighting
-# - sort directories first
-# - human readable sizes
-# - colors
+#   - file types highlighting
+#   - sort directories first
+#   - human readable sizes
+#   - colors
 alias ls="$LS -Fh --color=auto --group-directories-first"
 alias ll='ls -l'
 alias la='ls -la'
-alias grep='grep --color=auto'
+
+# disable color in fd since it messes with macOS terminal colors
 alias fd="$FD --color=never"
 
 # Python's virtual environment aliases
+# ------------------------------------
 
-# Function to find and source the closest .venv directory
+# virtualenv: find and source the closest .venv directory
 function va() {
     local dir=$(pwd)
     while [[ "$dir" != "/" ]]; do
@@ -37,4 +39,15 @@ function va() {
     done
     echo "No virtual environment found."
 }
+
+# virtualenv: deactivate virtual environment
 alias vd='deactivate'
+
+
+# show all zsh shell command completions installed
+function compl_list() {
+ for command in ${(k)_comps}; do
+    completions=${_comps[$command]}
+    printf "%-32s %s\n" $command $completions
+  done
+}
