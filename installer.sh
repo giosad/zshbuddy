@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ZSHBUDDY_HOME_STR="$(dirname "$(readlink -f "$0")")"
+SCRIPT_PATH="$(readlink -f "$0")"
+HOME_PATH="$(readlink -f "$HOME")"
+RELATIVE_PATH="${SCRIPT_PATH#"$HOME_PATH/"}"
+ZSHBUDDY_HOME_STR="\$HOME/$(dirname "$RELATIVE_PATH")"
 ZSHBUDDY_HOME=$(eval echo "$ZSHBUDDY_HOME_STR")
+
 ZSHBUDDY_BACKUP_DIR="$ZSHBUDDY_HOME/backup/$(date +%Y%m%d_%H%M%S)"
 
 ZSHBUDDY_MARKER="# === ZSHBUDDY START ==="
